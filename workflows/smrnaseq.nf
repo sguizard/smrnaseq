@@ -154,6 +154,7 @@ workflow SMRNASEQ {
     MIRTRACE(ch_mirtrace_inputs)
     ch_versions = ch_versions.mix(MIRTRACE.out.versions.ifEmpty(null))
 
+    ch_mirtrace_inputs.view { it -> println "==> ch_mirtrace_inputs: " + it }
 
     //
     // SUBWORKFLOW: remove contaminants from reads
